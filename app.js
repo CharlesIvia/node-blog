@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const Blog = require("./models/blogs");
 
@@ -22,6 +23,9 @@ mongoose
 
 app.set("view engine", "ejs");
 
+//Middleware and static files
+
+app.use(morgan("dev"));
 //Mongoose sandbox and routes
 app.get("/add-blog", (req, res) => {
   const blog = new Blog({
