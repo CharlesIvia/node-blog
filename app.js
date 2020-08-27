@@ -29,9 +29,9 @@ app.use(morgan("dev"));
 //Mongoose sandbox and routes
 app.get("/add-blog", (req, res) => {
   const blog = new Blog({
-    title: "New Blog Three",
-    snippet: "This is Where the Salt Is",
-    body: "More about where the salt is.",
+    title: "Rosebud🌹",
+    snippet: "TWhat was Citizen Kane's Rosebud",
+    body: "Announced. Today Charles Foster Kaned died in solitude in Xanadu...",
   });
 
   blog
