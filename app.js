@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Blog = require("./models/blogs");
 
 //express app
 
@@ -21,9 +22,43 @@ mongoose
 
 app.set("view engine", "ejs");
 
-//listen for requests
+//Mongoose sandbox and routes
+app.get("/add-blog", (req, res) => {
+  const blog = new Blog({
+    title: "New Blog Three",
+    snippet: "This is Where the Salt Is",
+    body: "More about where the salt is.",
+  });
 
-// app.listen(3000);
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/all-blogs", (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/single-blog", (req, res) => {
+  Blog.findById("5f4804527c9fae42d0970260")
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 //Home page
 app.get("/", (req, res) => {
@@ -35,6 +70,8 @@ app.get("/about", (req, res) => {
   //   res.sendFile("./views/about.html", { root: __dirname });
   res.render("about", { title: "About" });
 });
+
+//BLOG ROUTES
 
 //Create blog
 
