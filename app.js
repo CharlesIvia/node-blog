@@ -15,7 +15,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(console.log("Mongo DB connected"))
+  .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 //register view engine
 
@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 
 //listen for requests
 
-app.listen(3000);
+// app.listen(3000);
 
 //Home page
 app.get("/", (req, res) => {
