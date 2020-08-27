@@ -24,7 +24,7 @@ mongoose
 app.set("view engine", "ejs");
 
 //Middleware and static files
-
+app.use(express.static("public"));
 app.use(morgan("dev"));
 //Mongoose sandbox and routes
 app.get("/add-blog", (req, res) => {
