@@ -1,9 +1,22 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 //express app
 
 const app = express();
 
+//Connect to Mongo Db
+
+const dbURL =
+  "mongodb+srv://gatsby:gatsby2020@cluster0.holkp.mongodb.net/node-blog?retryWrites=true&w=majority";
+
+mongoose
+  .connect(dbURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(console.log("Mongo DB connected"))
+  .catch((err) => console.log(err));
 //register view engine
 
 app.set("view engine", "ejs");
