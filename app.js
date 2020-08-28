@@ -88,6 +88,18 @@ app.get("/blogs", (req, res) => {
     });
 });
 
+//Post request
+
+app.post("/blogs", (req, res) => {
+  const blog = new Blog(req.body);
+  blog
+    .save()
+    .then((result) => {
+      res.redirect("/blogs");
+    })
+    .catch((err) => console.log(err));
+});
+
 //Create blog
 
 app.get("/blogs/create", (req, res) => {
