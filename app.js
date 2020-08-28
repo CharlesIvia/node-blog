@@ -106,6 +106,16 @@ app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a New Blog" });
 });
 
+//Single blog
+app.get("/blogs/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then((result) => {
+      res.render("details", { blog: result, title: "Blog Details" });
+    })
+    .catch((err) => console.log(err));
+});
+
 //404 page
 
 app.use((req, res) => {
