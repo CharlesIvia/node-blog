@@ -27,8 +27,20 @@ const blog_create_post = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+const blog_details = (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then((result) => {
+      res.render("details", { blog: result, title: "Blog Details" });
+    })
+    .catch((err) => {
+      res.status(404).render("404", { title: "Blog Not Found" });
+    });
+};
+
 module.exports = {
   blog_index,
   blog_create_get,
   blog_create_post,
+  blog_details,
 };
