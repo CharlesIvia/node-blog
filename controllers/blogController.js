@@ -13,6 +13,11 @@ const blog_index = (req, res) => {
     });
 };
 
+const blog_create_get = (req, res) => {
+  res.render("create", { title: "Create a New Blog" });
+};
+
 module.exports = {
   blog_index,
+  blog_create_get,
 };
