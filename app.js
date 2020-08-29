@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 const homeRoute = require("./routes/homeRoute");
+const aboutRoute = require("./routes/aboutRoute");
 
 //express app
 
@@ -70,10 +71,7 @@ app.get("/single-blog", (req, res) => {
 app.use(homeRoute);
 
 //About page
-app.get("/about", (req, res) => {
-  //   res.sendFile("./views/about.html", { root: __dirname });
-  res.render("about", { title: "About" });
-});
+app.use(aboutRoute);
 
 //Blog routes
 
