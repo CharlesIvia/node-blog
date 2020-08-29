@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
+const homeRoute = require("./routes/homeRoute");
 
 //express app
 
@@ -66,9 +67,7 @@ app.get("/single-blog", (req, res) => {
 });
 
 //Home page
-app.get("/", (req, res) => {
-  res.redirect("/blogs");
-});
+app.use(homeRoute);
 
 //About page
 app.get("/about", (req, res) => {
