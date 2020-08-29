@@ -59,6 +59,10 @@ h3 {
 .content {
   margin-left: 20px;
 }
+
+.content p {
+  line-height: 32px;
+}
 /* index styles */
 .blogs a {
   display: block;
