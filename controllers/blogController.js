@@ -38,9 +38,21 @@ const blog_details = (req, res) => {
     });
 };
 
+const blog_delete = (req, res) => {
+  const id = req.params.id;
+  Blog.findByIdAndDelete(id)
+    .then((result) => {
+      res.json({
+        redirect: "/blogs",
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
 module.exports = {
   blog_index,
   blog_create_get,
   blog_create_post,
   blog_details,
+  blog_delete,
 };

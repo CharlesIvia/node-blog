@@ -18,15 +18,6 @@ router.get("/:id", blogController.blog_details);
 
 //Delete
 
-router.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  Blog.findByIdAndDelete(id)
-    .then((result) => {
-      res.json({
-        redirect: "/blogs",
-      });
-    })
-    .catch((err) => console.log(err));
-});
+router.delete("/:id", blogController.blog_delete);
 
 module.exports = router;
