@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 const homeRoute = require("./routes/homeRoute");
 const aboutRoute = require("./routes/aboutRoute");
-
+const notFoundRoute = require("./routes/notFoundRoute");
 //express app
 
 const app = express();
@@ -79,7 +79,4 @@ app.use("/blogs", blogRoutes);
 
 //404 page
 
-app.use((req, res) => {
-  //   res.status(404).sendFile("./views/404.html", { root: __dirname });
-  res.status(404).render("404", { title: "404" });
-});
+app.use(notFoundRoute);
