@@ -7,15 +7,7 @@ router.get("/", blogController.blog_index);
 
 //Post request
 
-router.post("/", (req, res) => {
-  const blog = new Blog(req.body);
-  blog
-    .save()
-    .then((result) => {
-      res.redirect("/blogs");
-    })
-    .catch((err) => console.log(err));
-});
+router.post("/", blogController.blog_create_post);
 
 //Create blog
 
